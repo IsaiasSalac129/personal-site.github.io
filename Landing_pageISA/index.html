@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ángel Isaías Marinero | Portafolio & Marca Personal</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Variables de la Paleta Opción B (Terminal Minimalist) */
+    :root {
+      --bg-main: #090D16;
+      --bg-surface: #111827;
+      --bg-surface-hover: #1F2937;
+      --accent-emerald: #10B981;
+      --accent-indigo: #6366F1;
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --border-color: #1F2937;
+      
+      --font-title: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent-emerald);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-indigo);
+    }
+
+    /* Layout & Utilities */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Concepto 2 de Logotipo en CSS */
+    .logo {
+      font-family: var(--font-code);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      letter-spacing: -0.02em;
+    }
+
+    .logo .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background-color: var(--accent-emerald);
+      margin-left: 6px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(9, 13, 22, 0.9);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.2rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 5rem 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-emerald);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .headline {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--accent-indigo);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .essence {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin-bottom: 2rem;
+    }
+
+    /* Componentes Generales */
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::before {
+      content: '//';
+      color: var(--accent-emerald);
+      font-family: var(--font-code);
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .card h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Sobre mí */
+    .about-block {
+      background-color: var(--bg-surface);
+      border-left: 3px solid var(--accent-emerald);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .about-block h4 {
+      font-family: var(--font-code);
+      color: var(--accent-emerald);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Proyectos (Placeholders) */
+    .placeholder-tag {
+      display: inline-block;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Contacto & Footer */
+    .contact-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-emerald);
+      color: #090D16;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #34D399;
+      color: #090D16;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      section {
+        padding: 3.5rem 0;
+      }
+      .hero-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .profile-img {
+        width: 75px;
+        height: 75px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">AM <span class="cursor"></span></a>
+        <ul class="nav-links">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#que-haco">Qué hago</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Proactivo · Inquisitivo · Solvente</span>
+      <div class="hero-header">
+        <img src="img/foto.jpeg" alt="Ángel Isaías Marinero" class="profile-img">
+        <h1>Ángel Isaías Marinero</h1>
+      </div>
+      <div class="headline">Ingeniería en Ciencias de la Computación | Network Administration & Cybersecurity Enthusiast | Founder & Content Creator at JediZCode</div>
+      <p class="essence">Liderazgo inquisitivo y didáctico que conecta la infraestructura tecnológica y la ciberseguridad con la educación y el impacto social.</p>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <div>
+        <div class="about-block">
+          <h4>// ENFOQUE TÉCNICO & INDAGACIÓN</h4>
+          <p>Estudiante de Ingeniería en Ciencias de la Computación enfocado en administración de redes, ciberseguridad y desarrollo de sistemas. Me apasiona entender el funcionamiento profundo de la tecnología y descomponer conceptos complejos para hacerlos accesibles.</p>
+        </div>
+        <div class="about-block">
+          <h4>// COMUNIDAD & EDUCACIÓN</h4>
+          <p>Creador de contenido en JediZCode y líder de iniciativas voluntarias, me enfoco en resolver problemas de alta exigencia técnica promoviendo el trabajo en equipo, la disciplina y la excelencia.</p>
+        </div>
+        <div class="about-block">
+          <h4>// METODOLOGÍA & VALORES</h4>
+          <p>Trabajo bajo la filosofía de ir siempre más allá de la teoría planteando la pregunta '¿qué pasa si...?', comprometiéndome a dar la milla extra con rigor técnico, empatía y liderazgo directo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué hago (Pilares) -->
+  <section id="que-haco">
+    <div class="container">
+      <h2 class="section-title">Qué hago</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Infraestructura & Ciberseguridad</h3>
+          <p>Análisis de vulnerabilidades, arquitectura de redes seguras y administración de servidores Linux. Despliegue de soluciones evaluando límites y casos de borde.</p>
+        </div>
+        <div class="card">
+          <h3>Ingeniería Didáctica</h3>
+          <p>Divulgación técnica en JediZCode. Traducción de arquitecturas y protocolos complejos a explicaciones estructuradas, didácticas y de alta claridad.</p>
+        </div>
+        <div class="card">
+          <h3>Liderazgo & Impacto Social</h3>
+          <p>Coordinación de proyectos técnicos y comunitarios. Gestión de equipos orientados a la disciplina, la resolución activa de problemas y la responsabilidad social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos / Experiencia -->
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Proyectos destacados</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="placeholder-tag">[PROYECTO 1]</span>
+          <h3>Infraestructura de Redes / Ciberseguridad</h3>
+          <p>Espacio reservado para detallar tu laboratorio de redes Cisco (VPN Site-to-Site, NAT, ACLs) o escaneo de vulnerabilidades con Nessus/Docker en Ubuntu Server.</p>
+        </div>
+        <div class="card">
+          <span class="placeholder-tag">[PROYECTO 2]</span>
+          <h3>Canal Educativo JediZCode</h3>
+          <p>Espacio reservado para destacar la serie de tutoriales de WSL, fundamentos de terminal, lógica de redes o guías didácticas publicadas en YouTube.</p>
+        </div>
+        <div class="card">
+          <span class="placeholder-tag">[PROYECTO 3]</span>
+          <h3>Desarrollo Web / Proyectos Universitarios</h3>
+          <p>Espacio reservado para añadir tu proyecto de stack web (Node.js, Bootstrap, AJAX) o la arquitectura de procesamiento de datos/reconocimiento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-card">
+        <h2 style="font-family: var(--font-title); font-size: 2rem; margin-bottom: 1rem;">Construyamos proyectos juntos</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">
+          Abierto a colaboraciones en ciberseguridad, administración de redes, liderazgo comunitario y proyectos educativos.
+        </p>
+        <p style="font-family: var(--font-code); color: var(--accent-emerald); font-size: 1.1rem;">
+          marineroisaias129@gmail.com
+        </p>
+        <a href="https://linkedin.com" target="_blank" class="btn">Conectar en LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Ángel Isaías Marinero Salamanca. Desarrollado sin dependencias. Se reservan todos los derechos de esta pagina epica</p>
+    </div>
+  </footer>
+
+</body>
+</html>
